@@ -1,0 +1,46 @@
+model을 처음에는 h5형식으로 만들었는데 
+flutter에서는 model을 tlife형식으로 돌려야해서 
+형식을 변경하려고 했는데 생각만큼 되지않았다 
+그래서 인터넷으로 구글링을 하다가 찾았다 ( https://blog.naver.com/hhj732/221691367093)
+참조 하였고 
+
+import tensorflow as tf
+from tensorflow import keras
+
+# 모델 정의
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(150, 150, 3)),
+    tf.keras.layers.MaxPooling2D(2, 2),
+    tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2, 2),
+    tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2, 2),
+    tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2, 2),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dropout(0.5),
+    tf.keras.layers.Dense(512, activation='relu'),
+    tf.keras.layers.Dense(1, activation='sigmoid')
+])
+
+# 모델의 가중치를 불러옵니다.
+model.load_weights('plant_model.h5')
+
+# TensorFlow SavedModel 포맷으로 모델 저장
+export_path = 'D:\\AI\\study\\project\\model\\saved_model'
+model.export(export_path)
+
+# SavedModel을 TensorFlow Lite 포맷으로 변환
+converter = tf.lite.TFLiteConverter.from_saved_model(export_path)
+converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS,
+                                       tf.lite.OpsSet.SELECT_TF_OPS]
+tflite_model = converter.convert()
+
+# 변환된 TensorFlow Lite 모델 저장
+with open('D:\\AI\\study\\project\\model\\plant_model.tflite', 'wb') as f:
+    f.write(tflite_model)
+
+이렇게 변환하는 코드로 변경해서 내가 만든 모델층을 알려주고 가중치를 불러와서 
+h5파일로 저장후 lite포맷으로 변환하고 난후 저장을 해서 다시 만들었다 
+혹시나 몰라서 다른 컴퓨터에 train 모델을 다시 만들었다 epoch는 150으로 변경해서 다시 model을 
+생성중이다.

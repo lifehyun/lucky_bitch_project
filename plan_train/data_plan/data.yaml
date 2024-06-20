@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 5
+names: ['Crassula', 'Letizia', 'LumiRose', 'Sedum', 'Vicks']
+
+roboflow:
+  workspace: test-qsudy
+  project: plant-vksot
+  version: 4
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/test-qsudy/plant-vksot/dataset/4

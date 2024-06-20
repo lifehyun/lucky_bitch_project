@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['Four Leaf Clover']
+
+roboflow:
+  workspace: test-qsudy
+  project: happy-m9jrl
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/test-qsudy/happy-m9jrl/dataset/1
