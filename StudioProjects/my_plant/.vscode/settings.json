@@ -1,0 +1,6 @@
+{
+  "cmake.sourceDirectory": "D:/AI/study/project/lucky_bitch_project/StudioProjects/my_plant/build/windows/x64/_deps/nuget-subbuild",
+  "git.ignoreLimitWarning": true,
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.configuration.updateBuildConfiguration": "automatic"
+}
