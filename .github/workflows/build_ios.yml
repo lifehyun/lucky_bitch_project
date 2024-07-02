@@ -3,7 +3,7 @@ name: Build and Deploy iOS
 on:
   push:
     branches:
-      - master  # 혹은 master 브랜치 사용 시 'main'을 'master'로 변경
+      - main  # 혹은 master 브랜치 사용 시 'main'을 'master'로 변경
 
 jobs:
   build:
