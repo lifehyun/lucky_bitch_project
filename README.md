@@ -181,7 +181,6 @@ open data 활용(https://www.gperezs.com/projects/flc.html)
 ![KakaoTalk_20240627_161843814_02](https://github.com/harinme/plant-project/assets/152591270/26ea0e58-ae88-40cf-a193-863353acf6e6)
 
 
-# 추가
 - 클로버를 아시나요? 
 - 클로버에는 세잎 , 네잎이 있지만 네잎이 행운을 뜻합니다
 - 모든 사람들은 행운을 원하고 저도 마찬가지였습니다
